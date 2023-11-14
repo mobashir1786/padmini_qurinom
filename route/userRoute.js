@@ -166,8 +166,8 @@ userRoute.delete('/delete_post', async (req, res) => {
 
 // get all post 
 userRoute.get('/get_posts', async (req, res) => {
-    const token = req.body.token;
-    console.log(token)
+    const token = req.query.token;
+    // console.log(token)
     const user = await userModel.findOne({ token });
     if (!user) {
         return res.status(401).json({
